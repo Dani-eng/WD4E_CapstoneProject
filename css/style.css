@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 2%;
+  border: 5px solid black;
+  background-color: #dfbced;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Navigation */
+nav {
+  z-index: 10;
+}
+
+.button-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.75rem;
+  list-style: none;
+  background-color: #3b1648;
+}
+
+.button-list a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.button-list a:hover,
+.button-list a:focus {
+  background-color: #6b2c7d;
+}
+
+/* Large-screen image preview */
+#image {
+  width: min(575px, 90%);
+  min-height: 350px;
+  margin: 0 auto 25px;
+  border: 15px solid black;
+  background-color: #d42ce7;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: #f3f3f3;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Photo-and-blurb layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+.gallery img,
+.preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border: 8px solid black;
+}
+
+.gallery figcaption {
+  padding: 0.75rem 0;
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 1023px) {
+  nav {
+    position: sticky;
+    top: 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #image {
+    min-height: 400px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  nav {
+    position: sticky;
+    top: 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  #image {
+    min-height: 500px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  body {
+    margin: 0 0 0 4.5rem;
+    border-width: 3px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+  }
+
+  .button-list {
+    height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  .button-list a {
+    padding: 0.75rem 0.25rem;
+    text-align: center;
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #image {
+    width: 95%;
+    min-height: 250px;
+    border-width: 8px;
+    font-size: 1rem;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+
+  .gallery img,
+  .preview {
+    border-width: 5px;
+  }
+}
