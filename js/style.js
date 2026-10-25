@@ -1,108 +1,62 @@
-const ORIGINAL_TEXT = "Hover over an image below to display here.";
+const ORIGINAL_TEXT =
+  "Hover over or focus on an image below to display it here.";
 
-function upDate(previewPic){
-    const display = document.getElementById("image")
+function upDate(previewPic) {
+  const display = document.getElementById("image");
+  if (!display || !previewPic) return;
 
-    /*Check if function is being called */
-    console.log("Previewing:", previewPic.alt, previewPic.src);
+  display.style.backgroundImage = `url("${previewPic.src}")`;
+  display.textContent = previewPic.alt;
+}
 
-    /* In this function you should 
-    1) change the url for the background image of the div with the id = "image" 
-    to the source file of the preview image */
+function unDo() {
+  const display = document.getElementById("image");
+  if (!display) return;
 
-    display.style.backgroundImage = "url('" + previewPic.src + "')"; 
+  display.style.backgroundImage = "";
+  display.textContent = ORIGINAL_TEXT;
+}
 
-    /*2) Change the text  of the div with the id = "image" 
-    to the alt text of the preview image 
-    */
-    display.textContent = previewPic.alt;
-  
-	}
+document.addEventListener("DOMContentLoaded", () => {
+  const lightboxElement = document.getElementById("lightbox");
+  const triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
 
-	function unDo(){
-     /* In this function you should 
-    1) Update the url for the background image of the div with the id = "image" 
-    back to the original-image.  You can use the css code to see what that original URL was */
+  // The Home page and Location 1 do not contain a lightbox.
+  if (!lightboxElement || triggers.length === 0 || !window.bootstrap) return;
 
-    const display = document.getElementById("image");
+  const lightbox = new bootstrap.Modal(lightboxElement);
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  let currentIndex = 0;
 
-    display.style.backgroundImage= "url(' ')";
-    
-    
-    /*2) Change the text  of the div with the id = "image" 
-    back to the original text.  You can use the html code to see what that original text was
-    */
-   display.textContent = ORIGINAL_TEXT;
-		
-	}
+  function showImage(index) {
+    currentIndex = (index + triggers.length) % triggers.length;
 
-    	function onFocus(){
-        const display = document.getElementById("image")
+    const trigger = triggers[currentIndex];
+    const thumbnail = trigger.querySelector("img");
 
-    /*Check if function is being called */
-    console.log("Previewing:", previewPic.alt, previewPic.src);
+    lightboxImage.src = thumbnail.src;
+    lightboxImage.alt = thumbnail.alt;
+    lightboxCaption.textContent = trigger.dataset.caption;
+  }
 
-    /* In this function you should 
-    1) change the url for the background image of the div with the id = "image" 
-    to the source file of the preview image */
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener("click", () => {
+      showImage(index);
+      lightbox.show();
+    });
+  });
 
-    display.style.backgroundImage = "url('" + previewPic.src + "')"; 
+  document.getElementById("previous-image").addEventListener("click", () => {
+    showImage(currentIndex - 1);
+  });
 
-    /*2) Change the text  of the div with the id = "image" 
-    to the alt text of the preview image 
-    */
-    display.textContent = previewPic.alt;
-		
-	}
+  document.getElementById("next-image").addEventListener("click", () => {
+    showImage(currentIndex + 1);
+  });
 
-    	function onBlur(){
-     /* In this function you should 
-    1) Update the url for the background image of the div with the id = "image" 
-    back to the original-image.  You can use the css code to see what that original URL was */
-
-    const display = document.getElementById("image");
-
-    display.style.backgroundImage= "url(' ')";
-    
-    
-    /*2) Change the text  of the div with the id = "image" 
-    back to the original text.  You can use the html code to see what that original text was
-    */
-   display.textContent = ORIGINAL_TEXT;
-		
-	}
-
-    	function onLoad(){
-     /* In this function you should 
-    1) Update the url for the background image of the div with the id = "image" 
-    back to the original-image.  You can use the css code to see what that original URL was */
-
-    const display = document.getElementById("image");
-
-    display.style.backgroundImage= "url(' ')";
-    
-    
-    /*2) Change the text  of the div with the id = "image" 
-    back to the original text.  You can use the html code to see what that original text was
-    */
-   display.textContent = ORIGINAL_TEXT;
-		
-	}
-
-    function addTabIndex(){
-        /*1) Select all images on page*/
-        const images = document.querySelectorAll('img');
-        
-        /*2) Write a for-loop to loop through each image*/
-        for (let i=0; i < images.length; i++){
-            const img = images[i];
-        /*3) Add tabindex attribute*/
-            img[i].setAttribute('tabindex', 3 + i);
-        /*4) Add the custom tabfocus attribute*/
-            img.setAttribute('tabfocus', 'true');
-        /*5) Add a focus event listener with a console.log message*/
-        img.addEventListener('focus', function() {
-            console.log('Event triggered: Image ${i + 1} with src "${img.src}" is now focused.');
-            });
-        }
-    }
+  lightboxElement.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+    if (event.key === "ArrowRight") showImage(currentIndex + 1);
+  });
+});
