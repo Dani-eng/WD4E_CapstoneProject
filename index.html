@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Accessible Photo Gallery</title>
-  <link rel="stylesheet" href="css/gallery.css">
-  <script src="js/gallery.js" defer></script>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/style.js" defer></script>
 </head>
 
 <body>
@@ -15,8 +15,8 @@
     <nav aria-label="Main navigation">
       <ul class="button-list">
         <li class="current"><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="#location-1">Location 1</a></li>
-        <li><a href="#location-2">Location 2</a></li>
+        <li><a href="location-1.html">Location 1</a></li>
+        <li><a href="location-2.html">Location 2</a></li>
       </ul>
     </nav>
 
@@ -26,17 +26,14 @@
   <main id="main_content">
     <section aria-labelledby="general-info">
       <h2 id="general-info">General Info</h2>
-      <p>
-        Explore this photo gallery featuring a selection of dog breeds.
-        Hover over or focus on a photo to display it in the preview area.
-      </p>
+      <p>Explore this photo gallery featuring a selection of dog breeds. Hover over or focus on a photo to display it in the preview area.</p>
 
       <div id="image" tabindex="0" aria-live="polite">
         Hover over or focus on an image below to display it here.
       </div>
 
       <div class="gallery">
-        <figure id="location-1">
+        <figure>
           <img class="preview"
                src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/American_Pit_Bull_Terrier_-_Seated.jpg/250px-American_Pit_Bull_Terrier_-_Seated.jpg"
                alt="Seated American Pit Bull Terrier"
@@ -44,10 +41,7 @@
                onmouseout="unDo()"
                onfocus="upDate(this)"
                onblur="unDo()">
-          <figcaption>
-            <strong>American Pit Bull Terrier:</strong>
-            A seated dog photographed outdoors.
-          </figcaption>
+          <figcaption><strong>American Pit Bull Terrier:</strong> A seated dog photographed outdoors.</figcaption>
         </figure>
 
         <figure>
@@ -58,10 +52,7 @@
                onmouseout="unDo()"
                onfocus="upDate(this)"
                onblur="unDo()">
-          <figcaption>
-            <strong>Alaskan Husky:</strong>
-            A husky sits for a portrait.
-          </figcaption>
+          <figcaption><strong>Alaskan Husky:</strong> A husky sits for a portrait.</figcaption>
         </figure>
 
         <figure>
@@ -72,13 +63,10 @@
                onmouseout="unDo()"
                onfocus="upDate(this)"
                onblur="unDo()">
-          <figcaption>
-            <strong>Boston Terrier:</strong>
-            A small dog sits calmly for the camera.
-          </figcaption>
+          <figcaption><strong>Boston Terrier:</strong> A small dog sits calmly for the camera.</figcaption>
         </figure>
 
-        <figure id="location-2">
+        <figure>
           <img class="preview"
                src="https://upload.wikimedia.org/wikipedia/commons/6/69/Catahoula_Leopard_Hound_Dog.jpg"
                alt="Catahoula Leopard Hound"
@@ -86,10 +74,7 @@
                onmouseout="unDo()"
                onfocus="upDate(this)"
                onblur="unDo()">
-          <figcaption>
-            <strong>Catahoula Leopard Hound:</strong>
-            This dog’s coat has a distinctive spotted pattern.
-          </figcaption>
+          <figcaption><strong>Catahoula Leopard Hound:</strong> This dog’s coat has a distinctive spotted pattern.</figcaption>
         </figure>
 
         <figure>
@@ -100,10 +85,7 @@
                onmouseout="unDo()"
                onfocus="upDate(this)"
                onblur="unDo()">
-          <figcaption>
-            <strong>Toy Fox Terrier:</strong>
-            A standing terrier poses for a photo.
-          </figcaption>
+          <figcaption><strong>Toy Fox Terrier:</strong> A standing terrier poses for a photo.</figcaption>
         </figure>
 
         <figure>
@@ -114,10 +96,7 @@
                onmouseout="unDo()"
                onfocus="upDate(this)"
                onblur="unDo()">
-          <figcaption>
-            <strong>English Cocker Spaniel:</strong>
-            A spaniel rests with its long ears visible.
-          </figcaption>
+          <figcaption><strong>English Cocker Spaniel:</strong> A spaniel rests with its long ears visible.</figcaption>
         </figure>
       </div>
     </section>
