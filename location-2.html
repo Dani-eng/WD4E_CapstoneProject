@@ -10,7 +10,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Load Bootstrap first, then the lightbox code. -->
+  <!-- Load Bootstrap before the custom lightbox code. -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     defer></script>
@@ -29,10 +29,12 @@
           <a href="location-2.html" aria-current="page">Location 2</a>
         </li>
       </ul>
+
+      <button id="theme-toggle" type="button" aria-pressed="false">
+        🌙 Dark Mode
+      </button>
     </nav>
-    <button id="theme-toggle" type="button" aria-pressed="false">
-      🌙 Dark Mode
-    </button>
+
     <h1>Location 2</h1>
   </header>
 
@@ -43,67 +45,85 @@
 
       <div class="gallery-grid">
         <figure>
-          <button class="lightbox-trigger" type="button"
-                  data-caption="American Pit Bull Terrier: A seated dog photographed outdoors."
-                  aria-label="View seated American Pit Bull Terrier larger">
-            <img class="gallery-thumbnail"
-                 src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/American_Pit_Bull_Terrier_-_Seated.jpg/250px-American_Pit_Bull_Terrier_-_Seated.jpg"
-                 alt="Seated American Pit Bull Terrier">
+          <button
+            class="lightbox-trigger"
+            type="button"
+            data-caption="American Pit Bull Terrier: A seated dog photographed outdoors."
+            aria-label="View seated American Pit Bull Terrier larger">
+            <img
+              class="gallery-thumbnail"
+              src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/American_Pit_Bull_Terrier_-_Seated.jpg/250px-American_Pit_Bull_Terrier_-_Seated.jpg"
+              alt="Seated American Pit Bull Terrier">
           </button>
           <figcaption>American Pit Bull Terrier</figcaption>
         </figure>
 
         <figure>
-          <button class="lightbox-trigger" type="button"
-                  data-caption="Alaskan Husky: A husky sits for a portrait."
-                  aria-label="View seated Alaskan Husky larger">
-            <img class="gallery-thumbnail"
-                 src="https://live.staticflickr.com/69/184161283_d7a0e8c0b1_z.jpg"
-                 alt="Seated Alaskan Husky">
+          <button
+            class="lightbox-trigger"
+            type="button"
+            data-caption="Alaskan Husky: A husky sits for a portrait."
+            aria-label="View seated Alaskan Husky larger">
+            <img
+              class="gallery-thumbnail"
+              src="https://live.staticflickr.com/69/184161283_d7a0e8c0b1_z.jpg"
+              alt="Seated Alaskan Husky">
           </button>
           <figcaption>Alaskan Husky</figcaption>
         </figure>
 
         <figure>
-          <button class="lightbox-trigger" type="button"
-                  data-caption="Boston Terrier: A small dog sits calmly for the camera."
-                  aria-label="View seated Boston Terrier larger">
-            <img class="gallery-thumbnail"
-                 src="https://live.staticflickr.com/4117/4751390781_f8fa970e1e_z.jpg"
-                 alt="Seated Boston Terrier">
+          <button
+            class="lightbox-trigger"
+            type="button"
+            data-caption="Boston Terrier: A small dog sits calmly for the camera."
+            aria-label="View seated Boston Terrier larger">
+            <img
+              class="gallery-thumbnail"
+              src="https://live.staticflickr.com/4117/4751390781_f8fa970e1e_z.jpg"
+              alt="Seated Boston Terrier">
           </button>
           <figcaption>Boston Terrier</figcaption>
         </figure>
 
         <figure>
-          <button class="lightbox-trigger" type="button"
-                  data-caption="Catahoula Leopard Hound: This dog’s coat has a distinctive spotted pattern."
-                  aria-label="View Catahoula Leopard Hound larger">
-            <img class="gallery-thumbnail"
-                 src="https://upload.wikimedia.org/wikipedia/commons/6/69/Catahoula_Leopard_Hound_Dog.jpg"
-                 alt="Catahoula Leopard Hound with a distinctive spotted coat">
+          <button
+            class="lightbox-trigger"
+            type="button"
+            data-caption="Catahoula Leopard Hound: This dog’s coat has a distinctive spotted pattern."
+            aria-label="View Catahoula Leopard Hound larger">
+            <img
+              class="gallery-thumbnail"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/69/Catahoula_Leopard_Hound_Dog.jpg"
+              alt="Catahoula Leopard Hound with a distinctive spotted coat">
           </button>
           <figcaption>Catahoula Leopard Hound</figcaption>
         </figure>
 
         <figure>
-          <button class="lightbox-trigger" type="button"
-                  data-caption="Toy Fox Terrier: A standing terrier poses for a photo."
-                  aria-label="View Toy Fox Terrier larger">
-            <img class="gallery-thumbnail"
-                 src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Toy_Fox_Terrier.jpg"
-                 alt="Standing Toy Fox Terrier">
+          <button
+            class="lightbox-trigger"
+            type="button"
+            data-caption="Toy Fox Terrier: A standing terrier poses for a photo."
+            aria-label="View Toy Fox Terrier larger">
+            <img
+              class="gallery-thumbnail"
+              src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Toy_Fox_Terrier.jpg"
+              alt="Standing Toy Fox Terrier">
           </button>
           <figcaption>Toy Fox Terrier</figcaption>
         </figure>
 
         <figure>
-          <button class="lightbox-trigger" type="button"
-                  data-caption="English Cocker Spaniel: A spaniel rests with its long ears visible."
-                  aria-label="View English Cocker Spaniel larger">
-            <img class="gallery-thumbnail"
-                 src="https://upload.wikimedia.org/wikipedia/commons/1/12/Bojars%27s_english_cocker_spaniel.jpg"
-                 alt="English Cocker Spaniel lying down">
+          <button
+            class="lightbox-trigger"
+            type="button"
+            data-caption="English Cocker Spaniel: A spaniel rests with its long ears visible."
+            aria-label="View English Cocker Spaniel larger">
+            <img
+              class="gallery-thumbnail"
+              src="https://upload.wikimedia.org/wikipedia/commons/1/12/Bojars%27s_english_cocker_spaniel.jpg"
+              alt="English Cocker Spaniel lying down">
           </button>
           <figcaption>English Cocker Spaniel</figcaption>
         </figure>
@@ -111,14 +131,23 @@
     </section>
   </main>
 
-  <div class="modal fade" id="lightbox" tabindex="-1"
-       aria-labelledby="lightbox-caption" aria-hidden="true">
+  <div
+    class="modal fade"
+    id="lightbox"
+    tabindex="-1"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-caption"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
       <div class="modal-content bg-dark text-white">
         <div class="modal-header border-0">
           <p class="modal-title" id="lightbox-caption"></p>
-          <button type="button" class="btn-close btn-close-white"
-                  data-bs-dismiss="modal" aria-label="Close lightbox"></button>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Close lightbox"></button>
         </div>
 
         <div class="modal-body text-center">
@@ -126,17 +155,26 @@
         </div>
 
         <div class="modal-footer border-0 justify-content-between">
-          <button type="button" class="btn btn-outline-light"
-                  id="previous-image">Previous</button>
-          <button type="button" class="btn btn-outline-light"
-                  id="next-image">Next</button>
+          <button
+            type="button"
+            class="btn btn-outline-light"
+            id="previous-image">
+            Previous
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-light"
+            id="next-image">
+            Next
+          </button>
         </div>
       </div>
     </div>
   </div>
+
   <footer class="floating-footer">
-  <a href="#top">Back to top</a>
-  <a href="index.html">Home</a>
-</footer>
+    <a href="#top">Back to top</a>
+    <a href="index.html">Home</a>
+  </footer>
 </body>
 </html>
