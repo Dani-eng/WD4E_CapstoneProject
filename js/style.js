@@ -18,6 +18,34 @@ function unDo() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Dark-mode toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  function setTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+
+    if (themeToggle) {
+      const isDark = theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+    }
+  }
+
+  setTheme(savedTheme || (prefersDark ? "dark" : "light"));
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const nextTheme =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+      localStorage.setItem("theme", nextTheme);
+      setTheme(nextTheme);
+    });
+  }
+
+  // Lightbox
   const lightboxElement = document.getElementById("lightbox");
   const triggers = Array.from(document.querySelectorAll(".lightbox-trigger"));
 
